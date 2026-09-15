@@ -2,6 +2,8 @@
 
 A local, no-network KOReader proof of concept inspired by [Riddle](https://github.com/MaximeRivest/Riddle).
 
+The animation and font-to-stroke approach are based on [MaximeRivest/Riddle](https://github.com/MaximeRivest/Riddle), adapted as a separate KOReader/Lua plugin.
+
 Write a question with a finger or passive stylus. After the writing pauses, the ink dissolves in place and a fixed demo answer is drawn below, stroke by stroke, with a bundled Dancing Script font.
 
 ## Install
@@ -11,6 +13,8 @@ Copy the `harrypotter.koplugin` directory into KOReader's `plugins` directory an
 `Menu -> More tools -> Harry Potter Riddle -> Start local riddle`
 
 Write with one finger/stylus, then lift it. The question is submitted automatically after about 2.6 seconds of inactivity. Two-finger gestures are passed through to KOReader.
+
+The final `update plugin` menu item downloads the current `harrypotter.koplugin` folder from this repository through KOReader's network manager, keeps a backup during installation, and asks you to restart KOReader when it finishes.
 
 The demo answer is deliberately local and fixed:
 
