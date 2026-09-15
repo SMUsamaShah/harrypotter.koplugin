@@ -27,8 +27,14 @@ local ANSWER_PEN_WIDTH = 2
 local ANSWER_FONT_SIZE = 42
 local ANSWER_GAP = 42
 
-local source_path = debug.getinfo(1, "S").source:match("^@(.*/)") or "./"
-local HANDWRITING_FONT = source_path .. "DancingScript.ttf"
+local plugin_dir = debug.getinfo(1, "S").source:match("^@(.*/)") or "./"
+local HANDWRITING_FONT = plugin_dir .. "DancingScript.ttf"
+
+local updater = dofile(plugin_dir .. "pluginupdater.lua").new{
+    repository = "SMUsamaShah/harrypotter.koplugin",
+    branch = "main",
+    folder = "harrypotter.koplugin",
+}
 
 local HarryPotter = WidgetContainer:extend{
     name = "harrypotter",
@@ -106,12 +112,7 @@ function HarryPotter:addToMainMenu(menu_items)
                     self:cancel()
                 end,
             },
-            {
-                text = _("Demo answer: The magic is already in your ink."),
-                enabled_func = function()
-                    return false
-                end,
-            },
+            updater:menuItem(),
         },
     }
 end
